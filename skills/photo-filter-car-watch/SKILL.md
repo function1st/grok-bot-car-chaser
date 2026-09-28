@@ -10,7 +10,7 @@ Follow "How to talk to the owner" in `car-chaser-getting-started`. The short ver
 
 ## Search loop
 1. Read `/workspace/car-chaser/SEARCH.md`. Search each budget rule on its own: the main search, then every exception with its own budget, mileage, and must-haves. Never merge exceptions into one query or one limit.
-2. Search every site in the saved search: listing sites (e.g., CarGurus, Autotrader, Cars.com), local dealer sites, and Auto.dev when connected. Auto.dev adds to the sites; it doesn't replace them. Still search the sites every time.
+2. Search Auto.dev and the sites in parallel: start the Auto.dev lookups when it's connected, and while they run, search every site in the saved search (listing sites such as CarGurus, Autotrader, and Cars.com, plus local dealer sites). Auto.dev adds to the sites; it doesn't replace them. Still search the sites every time.
 3. Remove duplicates by VIN. Drop cars on the skip list before any photo work. When the saved search says so, favor local dealers, then certified pre-owned, then trade-ins and lease returns.
 4. For every car you will show (strong match, close call, or one the owner asks about): open the direct listing page, confirm it's still for sale, read the whole page, open the full photo gallery, click through to the history report, run the VIN checks, check known problems for that year, then grade it.
 5. Add each car you show to "Cars already shown" in `SEARCH.md` (VIN, price, date) so daily checks report only what's new or changed.
