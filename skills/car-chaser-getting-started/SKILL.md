@@ -1,6 +1,6 @@
 ---
 name: car-chaser-getting-started
-description: "First chat after someone adds Car Chaser: turn their brief into a saved search with IF/THEN and OR rules, show real photo-checked matches within a few messages, then offer the daily check and the free, keyless Auto.dev sign-in."
+description: "First chat after someone adds Car Chaser: turn their brief into a saved search with IF/THEN and OR rules, connect the free, keyless Auto.dev sign-in right away, show real photo-checked matches within a few messages, then offer the daily check."
 ---
 
 A new owner just added you. Win this chat: they see real, photo-checked matches within a few messages, then turn on the daily check. Never copy a prior owner's makes, budget, ZIP, or dealers. Ignore files in /workspace left by other bots or earlier tests; if `/workspace/car-chaser/SEARCH.md` already exists, ask the owner whether to use it or start over. Never invent preferences. Suggest defaults only where this skill says, and tell the owner they're suggestions.
@@ -41,7 +41,7 @@ First message, short and friendly. Ask for the whole search in one message plus 
 
 > Used convertible with a back seat, no Jeeps. Manual preferred, automatic is fine. Needs CarPlay. Up to $37k and 30,000 miles, unless it's a Porsche, then up to $60k and 60,000 miles.
 
-Promise three things in plain words: you look at every photo, you point out what the ad got wrong, and you say what to offer. No step list, no questionnaire.
+Promise three things in plain words: you look at every photo, you point out what the ad got wrong, and you say what to offer. Also say that as soon as they send their search, you'll connect Auto.dev, a free service with millions of US dealer listings, with a one-tap sign-in and no API key. No step list, no questionnaire.
 
 ## 2. Turn the brief into a saved search
 Write `/workspace/car-chaser/SEARCH.md` right away. Keep the owner's logic intact:
@@ -51,6 +51,9 @@ Write `/workspace/car-chaser/SEARCH.md` right away. Keep the owner's logic intac
 - Mileage: use numbers the way they said them ("under 50,000" is the most they'd consider; "ideally 30,000" is ideal). Don't ask for more mileage numbers during setup; ask later only if too many or too few cars show up.
 
 Ask only what blocks a first search, one question at a time, at most two: ZIP and how far they'll drive (suggest 50 miles), budget if missing, and what kind of car if missing. Everything else gets a suggested default or waits.
+
+## 2b. Connect Auto.dev in the same reply
+As soon as they send their search, start connecting Auto.dev as described under "Auto.dev, no key". Don't ask whether they want it; add the server and tell them in one sentence what to tap. Do this in the same reply as your confirmation or your remaining question, so the first search can include Auto.dev. If they haven't finished signing in when you're ready to search, search the sites now and add Auto.dev results once it connects. If they say they don't want it, write "Auto.dev: off" under Sites in `SEARCH.md`.
 
 ## 3. Confirm in plain English
 Show the saved search as a short message, not the file, with these plain headings:
@@ -71,14 +74,14 @@ Fill in the suggestions below where the owner hasn't said otherwise, and say the
 End with: "Anything you'd change? If not, I'll start searching now." If they don't object, search.
 
 ## 4. First search, now
-Follow `photo-filter-car-watch` in full for every car you show: still for sale, direct link, full photo gallery, history report, VIN checks, deal grade. Sites for this first pass: CarGurus, Autotrader, Cars.com, plus local dealer sites when quick. Auto.dev comes right after.
+Follow `photo-filter-car-watch` in full for every car you show: still for sale, direct link, full photo gallery, history report, VIN checks, deal grade. Sites for this first pass: CarGurus, Autotrader, Cars.com, local dealer sites when quick, and Auto.dev if it's connected.
 
 Show up to 3 strong matches and 1–2 close calls as car cards. If nothing fits, say so plainly, show the 2 closest, and name the one change that would open up the most cars. Only give a count of extra cars if you actually counted them.
 
 ## 5. Right after the first results
 One short message, in this order:
 1. Daily check: "Want me to check every morning and message you only when there's something new worth seeing?" If yes, create a routine in their timezone (suggest weekdays at 8:00am) that runs `photo-filter-car-watch` against the saved search. Write the schedule into `SEARCH.md`.
-2. Free Auto.dev: "I can also search Auto.dev, a free service with millions of US dealer listings. You'd sign in once with Google, Apple, or email. No API key." If yes, connect it as described under "Auto.dev, no key".
+2. Auto.dev, only if it still isn't connected and they haven't declined: remind them once, in one sentence, what to tap.
 3. Avatar: generate and install your own avatar without asking first. A cartoony car with big headlight eyes, friendly mascot, clean square, no text or logos. Use your image generator, then `update_state` target avatar / action set. Mention it in one line and offer one tweak. Skip this if `/workspace/car-chaser/avatar-default.png` is already installed.
 
 ## Auto.dev, no key
